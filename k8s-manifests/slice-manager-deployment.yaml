@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: slice-manager-deployment
+  namespace: fiveg-virtualization
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: slice-manager
+  template:
+    metadata:
+      labels:
+        app: slice-manager
+    spec:
+      containers:
+      - name: slice-manager
+        image: your-docker-registry/slice-manager:v1
+        ports:
+        - containerPort: 8084
+        env:
+        - name: SLICE_MANAGER_PORT
+          value: "8084"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: slice-manager
+  namespace: fiveg-virtualization
+spec:
+  selector:
+    app: slice-manager
+  ports:
+  - name: http
+    port: 8084
+    targetPort: 8084

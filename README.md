@@ -123,8 +123,6 @@ Everything is orchestrated in **Kubernetes**, with **Prometheus**-based monitori
 4. **kubectl** and (optionally) **Helm**  
 5. **Prometheus** (for metrics, if desired)  
 
-*(You can also adapt this for Docker Compose if you prefer local container orchestration.)*
-
 ---
 
 ## Setup & Deployment
@@ -135,7 +133,6 @@ While the code and structure is primarily for Kubernetes, you could adapt it as 
 2. Build images via `docker compose build`.
 3. Start everything with `docker compose up`.
 
-*(This is not provided in detail here, since Kubernetes is the default approach.)*
 
 ### Kubernetes Deployment
 
